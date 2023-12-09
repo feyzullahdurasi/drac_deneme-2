@@ -1,10 +1,16 @@
 plugins {
+<<<<<<< HEAD
     id("com.android.application")
     id("com.google.gms.google-services")
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
     id("com.google.gms.google-services") version "4.4.0" apply false
+=======
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+>>>>>>> f770c867b6ae85a24a09162aa1003e0452d763c9
 }
 
 def localProperties = new Properties()
@@ -67,6 +73,10 @@ flutter {
     source '../..'
 }
 
+<<<<<<< HEAD
 dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
 }
+=======
+dependencies {}
+>>>>>>> f770c867b6ae85a24a09162aa1003e0452d763c9
