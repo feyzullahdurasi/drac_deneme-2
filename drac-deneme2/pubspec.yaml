@@ -50,6 +50,7 @@ dev_dependencies:
   hexcolor: ^3.0.1
   google_maps_flutter: ^2.0.11
   smooth_page_indicator: ^1.1.0
+  location: ^4.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

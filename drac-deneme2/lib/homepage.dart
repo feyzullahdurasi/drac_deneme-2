@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class BottomNavBar extends StatefulWidget {
   final int initialIndex;
   final ValueChanged<int> onTabChanged;
 
-  const BottomNavBar({Key? key, required this.initialIndex, required this.onTabChanged}) : super(key: key);
+  const BottomNavBar(
+      {Key? key, required this.initialIndex, required this.onTabChanged})
+      : super(key: key);
 
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
@@ -64,12 +65,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavBar(
-          initialIndex: _currentIndex,
-          onTabChanged: (index) {
-            // Handle navigation logic based on index
-            switch (index) {
-              case 0:
+      bottomNavigationBar: BottomNavBar(
+        initialIndex: _currentIndex,
+        onTabChanged: (index) {
+          // Handle navigation logic based on index
+          switch (index) {
+            case 0:
               // Home Page
                 break;
               case 1:
@@ -95,50 +96,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-@override
-Widget build(BuildContext context) {
-  return const MaterialApp(
-    home: Maps(),
-  );
-}
-
-class Maps extends StatefulWidget {
-  const Maps({super.key});
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<Maps> {
-  late GoogleMapController mapController;
-
-  LatLng Location = const LatLng(37.7749, -122.4194);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: GoogleMap(
-        onMapCreated: (controller) {
-          setState(() {
-            mapController = controller;
-          });
-        },
-        initialCameraPosition: CameraPosition(
-          target: Location,
-          zoom: 12.0,
-        ),
-        markers: {
-          Marker(
-            markerId: const MarkerId('orderLocation'),
-            position: Location,
-          ),
-        },
-      ),
-    );
-  }
-}
-
-
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -150,6 +107,22 @@ class SettingsPage extends StatelessWidget {
       ),
       body: const Center(
         child: Text('Ayarlar İçerik Alanı'),
+      ),
+    );
+  }
+}
+
+class Maps extends StatelessWidget {
+  const Maps({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('harita Sayfası'),
+      ),
+      body: const Center(
+        child: Text('Harita İçerik Alanı'),
       ),
     );
   }

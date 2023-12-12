@@ -1,23 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-void main() {
-  runApp(const Map());
-}
-
-class Map extends StatelessWidget {
-  const Map({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Maps(),
-    );
-  }
-}
+import 'package:location/location.dart';
 
 class Maps extends StatefulWidget {
-  const Maps({super.key});
+  const Maps({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -25,16 +11,30 @@ class Maps extends StatefulWidget {
 
 class _MyHomePageState extends State<Maps> {
   late GoogleMapController mapController;
+  Location location = Location();
+  late LatLng currentLocation;
 
-  // Siparişin varsayılan konumu (örnek olarak ayarlandı, gerçek konum buradan alınabilir)
-  LatLng orderLocation = const LatLng(37.7749, -122.4194);
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      var userLocation = await location.getLocation();
+      setState(() {
+        currentLocation =
+            LatLng(userLocation.latitude!, userLocation.longitude!);
+      });
+    } catch (e) {
+      print("Error getting location: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sipariş Takip'),
-      ),
       body: GoogleMap(
         onMapCreated: (controller) {
           setState(() {
@@ -42,14 +42,13 @@ class _MyHomePageState extends State<Maps> {
           });
         },
         initialCameraPosition: CameraPosition(
-          target: orderLocation,
+          target: currentLocation ?? const LatLng(37.7749, -122.4194),
           zoom: 12.0,
         ),
         markers: {
           Marker(
             markerId: const MarkerId('orderLocation'),
-            position: orderLocation,
-            infoWindow: const InfoWindow(title: 'Sipariş Konumu'),
+            position: currentLocation ?? const LatLng(37.7749, -122.4194),
           ),
         },
       ),
