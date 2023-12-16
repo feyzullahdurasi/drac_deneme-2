@@ -58,8 +58,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           );
                         },
-                        child: const Text('Done', style: TextStyle(fontWeight: FontWeight.bold,
-                            ),
+                        child: const Text('Done',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold),
                         ),
                       )
                     : GestureDetector(

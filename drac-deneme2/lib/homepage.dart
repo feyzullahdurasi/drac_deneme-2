@@ -24,7 +24,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return GNav(
+    return SingleChildScrollView(
+        child: GNav(
       selectedIndex: _currentIndex,
       onTabChange: (index) {
         setState(() {
@@ -45,9 +46,29 @@ class _BottomNavBarState extends State<BottomNavBar> {
           icon: Icons.map_outlined,
         ),
         GButton(
+          icon: Icons.add_a_photo,
+          text: "Camera",
+        ),
+        GButton(
+          icon: Icons.add,
+          text: "Netflix",
+        ),
+        GButton(
+          icon: Icons.add,
+          text: "Youtube",
+        ),
+        GButton(
+          icon: Icons.add,
+          text: "Spotify",
+        ),
+        GButton(
+          icon: Icons.add,
+          text: "Music",
+        ),
+        GButton(
           icon: Icons.settings,
         ),
-      ],
+      ],),
     );
   }
 }
@@ -68,7 +89,6 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavBar(
         initialIndex: _currentIndex,
         onTabChanged: (index) {
-          // Handle navigation logic based on index
           switch (index) {
             case 0:
               // Home Page
@@ -83,11 +103,26 @@ class _HomePageState extends State<HomePage> {
                 );
                 break;
               case 3:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsPage()),
-                );
+
                 break;
+            case 4:
+            // Home Page
+              break;
+            case 5:
+
+              break;
+            case 6:
+
+              break;
+            case 7:
+
+              break;
+            case 8:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SettingsPage()),
+              );
+              break;
             }
           },
         ),
