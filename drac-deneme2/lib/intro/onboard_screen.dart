@@ -1,6 +1,7 @@
 import 'package:drac/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../homescreen.dart';
 import 'intropage/intropage1.dart';
 import 'intropage/intropage2.dart';
 import 'intropage/intropage3.dart';
@@ -53,7 +54,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return const HomePage();
+                                return const HomeScreen();
                               },
                             ),
                           );
