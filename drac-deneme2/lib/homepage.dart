@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+//import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavBar extends StatefulWidget {
   final int initialIndex;
@@ -25,7 +25,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        child: GNav(
+        /*child: GNav(
       selectedIndex: _currentIndex,
       onTabChange: (index) {
         setState(() {
@@ -68,8 +68,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         GButton(
           icon: Icons.settings,
         ),
-      ],),
-    );
+      ],),*/
+        );
   }
 }
 
@@ -92,30 +92,25 @@ class _HomePageState extends State<HomePage> {
           switch (index) {
             case 0:
               // Home Page
-                break;
-              case 1:
-
-                break;
-              case 2:
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Maps()),
-                );
-                break;
-              case 3:
-
-                break;
+              break;
+            case 1:
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Maps()),
+              );
+              break;
+            case 3:
+              break;
             case 4:
-            // Home Page
+              // Home Page
               break;
             case 5:
-
               break;
             case 6:
-
               break;
             case 7:
-
               break;
             case 8:
               Navigator.push(
@@ -123,10 +118,10 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => const SettingsPage()),
               );
               break;
-            }
-          },
-        ),
-        //body: // Your main content goes here,
+          }
+        },
+      ),
+      //body: // Your main content goes here,
     );
   }
 }

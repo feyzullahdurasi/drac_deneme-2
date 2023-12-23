@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'constants/colors.dart';
 import 'homepage.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -42,13 +42,13 @@ class _MyHomePageState extends State<Maps> {
           });
         },
         initialCameraPosition: CameraPosition(
-          target: currentLocation ?? const LatLng(37.7749, -122.4194),
+          target: currentLocation ?? LatLng(37.7749, -122.4194),
           zoom: 12.0,
         ),
         markers: {
           Marker(
             markerId: const MarkerId('orderLocation'),
-            position: currentLocation ?? const LatLng(37.7749, -122.4194),
+            position: currentLocation ?? LatLng(37.7749, -122.4194),
           ),
         },
       ),
